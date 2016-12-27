@@ -37,5 +37,6 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 # Rabbit MQ
 export PATH=$PATH:/usr/local/sbin
 
-
+# Haskell
+export PATH=$PATH:$HOME/Library/Haskell/bin
 

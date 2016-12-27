@@ -2,14 +2,13 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-execute pathogen#infect()
 
 "load 'sensible.vim' now so, the remaining commands in this .vimrc
 "can override it wished.
 runtime! plugin/sensible.vim
 
-filetype plugin indent on
 syntax on
+filetype plugin indent on
 
 set number 			
 set nowrap
@@ -40,14 +39,57 @@ set wildmenu
 set completeopt+=longest
 set autoindent
 set t_Co=256
+set cmdheight=1
+
+" Pathogen
+execute pathogen#infect()
 
 colorscheme desert
+
 
 " Customize ctrp to open files in new tab on CR.
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
     \ 'AcceptSelection("t")': ['<cr>'],
     \ }
+
+" Syntastic customization
+"map <Leader>s :SyntasticToggleMode<CR>
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+" Haskell  put this in a haskell specific place
+map <silent> tw :GhcModTypeInsert<CR>
+map <silent> ts :GhcModSplitFunCase<CR>
+map <silent> tq :GhcModType<CR>
+map <silent> te :GhcModTypeClear<CR>
+
+let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+
+if has("gui_running")
+    imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+  else " no gui
+      if has("unix")
+            inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+              endif
+            endif
+
+
+let g:haskellmode_completion_ghc = 1
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+
+let g:haskell_tabular = 1
+
+vmap a= :Tabularize /=<CR>
+vmap a; :Tabularize /::<CR>
+vmap a- :Tabularize /-><CR>
 
 " Markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
@@ -72,5 +114,6 @@ autocmd BufReadPost *
 
 
 " Custom key mappings
+let mapleader = '-'
 inoremap kj <ESC>
 map <C-n> :NERDTreeToggle<CR>
