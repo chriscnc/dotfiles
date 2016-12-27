@@ -1,0 +1,30 @@
+[submodule "vim/bundle/ctrlp.vim"]
+	path = vim/bundle/ctrlp.vim
+	url = git@github.com:ctrlpvim/ctrlp.vim.git
+[submodule "vim/bundle/haskell-vim"]
+	path = vim/bundle/haskell-vim
+	url = git@github.com:neovimhaskell/haskell-vim.git
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = git@github.com:vim-syntastic/syntastic.git
+[submodule "vim/bundle/vim-classpath"]
+	path = vim/bundle/vim-classpath
+	url = git@github.com:tpope/vim-classpath.git
+[submodule "vim/bundle/vim-clojure-static"]
+	path = vim/bundle/vim-clojure-static
+	url = git@github.com:guns/vim-clojure-static.git
+[submodule "vim/bundle/vim-fireplace"]
+	path = vim/bundle/vim-fireplace
+	url = git@github.com:tpope/vim-fireplace.git
+[submodule "vim/bundle/vim-hdevtools"]
+	path = vim/bundle/vim-hdevtools
+	url = git@github.com:bitc/vim-hdevtools.git
+[submodule "vim/bundle/vim-hoogle"]
+	path = vim/bundle/vim-hoogle
+	url = git@github.com:Twinside/vim-hoogle.git
+[submodule "vim/bundle/vim-sensible"]
+	path = vim/bundle/vim-sensible
+	url = git@github.com:tpope/vim-sensible.git
