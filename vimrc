@@ -75,6 +75,19 @@ if has("gui_running")
 let g:haskellmode_completion_ghc = 1
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
+" Syntastic
+"augroup mySyntastic
+"  " tell syntasitc to alwas stick any detected errors into the location-list
+"  au FileType java,python let g:syntastic_always_populate_loc_list = 1
+"
+"  " automatically open and/or close the location-list
+"  au FileType java,python let g:syntastic_auto_loc_list = 1
+"augroup END
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+nnoremap <Leader>S :SyntasticToogleMode<CR>
+
 " tabular
 let g:haskell_tabular = 1
 

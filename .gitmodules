@@ -55,3 +55,12 @@
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = git@github.com:vim-syntastic/syntastic.git
+[submodule "vim/bundle/vim-better-sml"]
+	path = vim/bundle/vim-better-sml
+	url = git@github.com:jez/vim-better-sml.git
+[submodule "vim/bundle/vim-racket"]
+	path = vim/bundle/vim-racket
+	url = git@github.com:wlangstroth/vim-racket.git
