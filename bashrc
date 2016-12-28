@@ -3,6 +3,7 @@ alias ll="ls -l"
 alias e="exit"
 alias racket="racket -il xrepl"
 alias vi="vim"
+alias sml="rlwrap sml"
 
 export TERM=xterm-256color
 export CLICOLOR=1
