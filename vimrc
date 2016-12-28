@@ -84,8 +84,12 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 "  au FileType java,python let g:syntastic_auto_loc_list = 1
 "augroup END
 
+" tell syntasitc to alwas stick any detected errors into the location-list
 let g:syntastic_always_populate_loc_list = 1
+" automatically open and/or close the location-list
 let g:syntastic_auto_loc_list = 1
+" racket
+let g:syntastic_enable_racket_racket_checker = 1
 nnoremap <Leader>S :SyntasticToogleMode<CR>
 
 " tabular
@@ -94,6 +98,9 @@ let g:haskell_tabular = 1
 vmap a= :Tabularize /=<CR>
 vmap a; :Tabularize /::<CR>
 vmap a- :Tabularize /-><CR>
+
+" Racket
+autocmd FileType racket nnoremap <buffer> <F9> :exec '!raco test' shellescape(@%, 1)<CR>
 
 " Python
 autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<CR>

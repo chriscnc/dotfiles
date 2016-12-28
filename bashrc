@@ -20,7 +20,7 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin
 
 # Racket
-export PATH="/Applications/Racket v6.2.1/bin":$PATH
+export PATH="/Applications/Racket v6.7/bin":$PATH
 
 # Java
 export JAVA_HOME=$(/usr/libexec/java_home)
