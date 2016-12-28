@@ -31,7 +31,7 @@ set ruler			" show the cursor position all the time
 set showcmd			" display incomplete commands
 set incsearch			" do incremental searching
 set nohlsearch
-set clipboard=unnamedplus,autoselect
+set clipboard=unnamed,autoselect
 set completeopt=menuone,menu,longest
 set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
 set wildmode=longest,list,full
@@ -43,6 +43,7 @@ set cmdheight=1
 
 " Pathogen
 execute pathogen#infect()
+execute pathogen#helptags()
 
 colorscheme desert
 
@@ -53,23 +54,14 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<cr>'],
     \ }
 
-" Syntastic customization
-"map <Leader>s :SyntasticToggleMode<CR>
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-" Haskell  put this in a haskell specific place
+" ghc-mod
 map <silent> tw :GhcModTypeInsert<CR>
 map <silent> ts :GhcModSplitFunCase<CR>
 map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
 
+" super tab
 let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 
 if has("gui_running")
@@ -80,17 +72,19 @@ if has("gui_running")
               endif
             endif
 
-
 let g:haskellmode_completion_ghc = 1
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
-
+" tabular
 let g:haskell_tabular = 1
 
 vmap a= :Tabularize /=<CR>
 vmap a; :Tabularize /::<CR>
 vmap a- :Tabularize /-><CR>
-vmap a: :Tabularize /:<CR>
+
+" Python
+autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<CR>
+
 
 " Markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
