@@ -38,14 +38,15 @@ set wildmode=longest,list,full
 set wildmenu
 set completeopt+=longest
 set autoindent
-set t_Co=256
+"set t_Co=256
 set cmdheight=1
 
 " Pathogen
 execute pathogen#infect()
 execute pathogen#helptags()
 
-colorscheme desert
+set background=dark
+colorscheme solarized
 
 
 " Customize ctrp to open files in new tab on CR.
@@ -130,5 +131,6 @@ autocmd BufReadPost *
 
 " Custom key mappings
 let mapleader = '-'
-inoremap kj <ESC>
+inoremap <silent> kj <ESC>
+nnoremap <Leader>hi :HoogleInfo<CR>
 map <C-n> :NERDTreeToggle<CR>

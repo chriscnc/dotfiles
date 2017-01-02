@@ -4,10 +4,10 @@ alias e="exit"
 alias racket="racket -il xrepl"
 alias vi="vim"
 alias sml="rlwrap sml"
+alias typed-racket="racket -I typed/racket"
 
-export TERM=xterm-256color
-export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad
+#export TERM=xterm-256color
+#export CLICOLOR=1
 export HISTSIZE=10000
 export HISTCONTROL=erasedups
 
