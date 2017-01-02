@@ -38,7 +38,6 @@ set wildmode=longest,list,full
 set wildmenu
 set completeopt+=longest
 set autoindent
-"set t_Co=256
 set cmdheight=1
 
 " Pathogen
