@@ -1,36 +1,36 @@
 [submodule "vim/bundle/ctrlp.vim"]
 	path = vim/bundle/ctrlp.vim
-	url = git@github.com:ctrlpvim/ctrlp.vim.git
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
-	url = git@github.com:scrooloose/nerdtree.git
+	url = https://github.com/scrooloose/nerdtree.git
 [submodule "vim/bundle/vim-classpath"]
 	path = vim/bundle/vim-classpath
-	url = git@github.com:tpope/vim-classpath.git
+	url = https://github.com/tpope/vim-classpath.git
 [submodule "vim/bundle/vim-clojure-static"]
 	path = vim/bundle/vim-clojure-static
-	url = git@github.com:guns/vim-clojure-static.git
+	url = https://github.com/guns/vim-clojure-static.git
 [submodule "vim/bundle/vim-fireplace"]
 	path = vim/bundle/vim-fireplace
-	url = git@github.com:tpope/vim-fireplace.git
+	url = https://github.com/tpope/vim-fireplace.git
 [submodule "vim/bundle/vim-hoogle"]
 	path = vim/bundle/vim-hoogle
-	url = git@github.com:Twinside/vim-hoogle.git
+	url = https://github.com/Twinside/vim-hoogle.git
 [submodule "vim/bundle/vim-sensible"]
 	path = vim/bundle/vim-sensible
-	url = git@github.com:tpope/vim-sensible.git
+	url = https://github.com/tpope/vim-sensible.git
 [submodule "vim/bundle/ghcmod-vim"]
 	path = vim/bundle/ghcmod-vim
-	url = git@github.com:eagletmt/ghcmod-vim.git
+	url = https://github.com/eagletmt/ghcmod-vim.git
 [submodule "vim/bundle/vimproc.vim"]
 	path = vim/bundle/vimproc.vim
-	url = git@github.com:Shougo/vimproc.vim.git
+	url = https://github.com/Shougo/vimproc.vim.git
 [submodule "vim/bundle/neco-ghc"]
 	path = vim/bundle/neco-ghc
-	url = git@github.com:eagletmt/neco-ghc.git
+	url = https://github.com/eagletmt/neco-ghc.git
 [submodule "vim/bundle/neocomplete.vim"]
 	path = vim/bundle/neocomplete.vim
-	url = git@github.com:Shougo/neocomplete.vim.git
+	url = https://github.com/Shougo/neocomplete.vim.git
 [submodule "vim/bundle/tlib_vim"]
 	path = vim/bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
@@ -51,19 +51,19 @@
 	url = https://github.com/ervandew/supertab.git
 [submodule "vim/bundle/indentpython.vim"]
 	path = vim/bundle/indentpython.vim
-	url = git@github.com:vim-scripts/indentpython.vim.git
+	url = https://github.com/vim-scripts/indentpython.vim.git
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
-	url = git@github.com:vim-airline/vim-airline.git
+	url = https://github.com/vim-airline/vim-airline.git
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
-	url = git@github.com:vim-syntastic/syntastic.git
+	url = https://github.com/vim-syntastic/syntastic.git
 [submodule "vim/bundle/vim-better-sml"]
 	path = vim/bundle/vim-better-sml
-	url = git@github.com:jez/vim-better-sml.git
+	url = https://github.com/jez/vim-better-sml.git
 [submodule "vim/bundle/vim-racket"]
 	path = vim/bundle/vim-racket
-	url = git@github.com:wlangstroth/vim-racket.git
+	url = https://github.com/wlangstroth/vim-racket.git
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
+	url = https://github.com/altercation/vim-colors-solarized.git
