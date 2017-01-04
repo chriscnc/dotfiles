@@ -55,11 +55,6 @@ let g:ctrlp_prompt_mappings = {
     \ }
 
 
-" ghc-mod
-map <silent> tw :GhcModTypeInsert<CR>
-map <silent> ts :GhcModSplitFunCase<CR>
-map <silent> tq :GhcModType<CR>
-map <silent> te :GhcModTypeClear<CR>
 
 " super tab
 let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
@@ -73,37 +68,37 @@ if has("gui_running")
             endif
 
 let g:haskellmode_completion_ghc = 1
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+" end super tab
 
 " Syntastic
-"augroup mySyntastic
-"  " tell syntasitc to alwas stick any detected errors into the location-list
-"  au FileType java,python let g:syntastic_always_populate_loc_list = 1
-"
-"  " automatically open and/or close the location-list
-"  au FileType java,python let g:syntastic_auto_loc_list = 1
-"augroup END
+augroup my_syntastic
+  " tell syntasitc to alwas stick any detected errors into the location-list
+  au FileType java,python,haskell let g:syntastic_always_populate_loc_list = 1
+  " automatically open and/or close the location-list
+  au FileType java,python,haskell let g:syntastic_auto_loc_list = 1
+  au FileType racket let g:syntastic_enable_racket_racket_checker = 1
+augroup END
 
-" tell syntasitc to alwas stick any detected errors into the location-list
-let g:syntastic_always_populate_loc_list = 1
-" automatically open and/or close the location-list
-let g:syntastic_auto_loc_list = 1
-" racket
-let g:syntastic_enable_racket_racket_checker = 1
-nnoremap <Leader>S :SyntasticToogleMode<CR>
+nnoremap <leader>S :SyntasticToogleMode<CR>
+
 
 " tabular
-let g:haskell_tabular = 1
-
-vmap a= :Tabularize /=<CR>
-vmap a; :Tabularize /::<CR>
-vmap a- :Tabularize /-><CR>
+augroup tabular_haskell
+  au FileType haskell let g:haskell_tabular = 1
+  au FileType haskell vmap a= :Tabularize /=<CR>
+  au FileType haskell vmap a; :Tabularize /::<CR>
+  au FileType haskell vmap a- :Tabularize /-><CR>
+augroup END
 
 " Racket
-autocmd FileType racket nnoremap <buffer> <F9> :exec '!raco test' shellescape(@%, 1)<CR>
+augroup filetype_racket
+  autocmd FileType racket nnoremap <buffer> <localleader>r :exec '!raco test' shellescape(@%, 1)<CR>
+augroup END
 
 " Python
-autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<CR>
+augroup filetype_python
+  autocmd FileType python nnoremap <buffer> <localleader>r :exec '!python' shellescape(@%, 1)<CR>
+augroup END
 
 
 " Markdown
@@ -128,8 +123,36 @@ autocmd BufReadPost *
 \ endif
 
 
-" Custom key mappings
-let mapleader = '-'
+" global mappings
+let mapleader = "-"
+let maplocalleader = ","
+" Edit vimrc
+nnoremap <leader>ev :tabnew $MYVIMRC<cr> 
+" Source vimrc
+nnoremap <leader>sv :source $MYVIMRC<cr>
+" Remap ESC
 inoremap <silent> kj <ESC>
-nnoremap <Leader>hi :HoogleInfo<CR>
+inoremap <esc> <nop>
+
 map <C-n> :NERDTreeToggle<CR>
+
+
+augroup filetype_clojure
+  autocmd!
+  autocmd FileType clojure nnoremap <buffer> <localleader>r :Require<CR>
+augroup END
+
+augroup filetype_haskell
+  autocmd!
+  " ghcmod key mappings
+  autocmd FileType haskell nnoremap <buffer> <localleader>r :Require<CR>
+  autocmd FileType haskell nnoremap <silent> <buffer> <localleader>tq :GhcModType<CR>
+  autocmd FileType haskell nnoremap <silent> <buffer> <localleader>te :GhcModTypeClear<CR>
+  autocmd FileType haskell nnoremap <silent> <buffer> <localleader>ti :GhcModTypeInsert<CR>
+  autocmd FileType haskell nnoremap <silent> <buffer> <localleader>ts :GhcModSplitFunCase<CR>
+  autocmd Filetype haskell nnoremap <silent> <buffer> <localleader>d :GhcModInfoPreview<CR>
+  " for tab completion
+  autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+  autocmd Filetype haskell nnoremap <localleader>hi :HoogleInfo<CR>
+augroup END
+
