@@ -54,8 +54,6 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<cr>'],
     \ }
 
-
-
 " super tab
 let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 
@@ -72,6 +70,7 @@ let g:haskellmode_completion_ghc = 1
 
 " Syntastic
 augroup my_syntastic
+  autocmd!
   " tell syntasitc to alwas stick any detected errors into the location-list
   au FileType java,python,haskell let g:syntastic_always_populate_loc_list = 1
   " automatically open and/or close the location-list
@@ -84,6 +83,7 @@ nnoremap <leader>S :SyntasticToogleMode<CR>
 
 " tabular
 augroup tabular_haskell
+  autocmd!
   au FileType haskell let g:haskell_tabular = 1
   au FileType haskell vmap a= :Tabularize /=<CR>
   au FileType haskell vmap a; :Tabularize /::<CR>
@@ -92,11 +92,13 @@ augroup END
 
 " Racket
 augroup filetype_racket
+  autocmd!
   autocmd FileType racket nnoremap <buffer> <localleader>r :exec '!raco test' shellescape(@%, 1)<CR>
 augroup END
 
 " Python
 augroup filetype_python
+  autocmd!
   autocmd FileType python nnoremap <buffer> <localleader>r :exec '!python' shellescape(@%, 1)<CR>
 augroup END
 
