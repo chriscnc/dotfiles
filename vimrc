@@ -72,12 +72,13 @@ let g:haskellmode_completion_ghc = 1
 augroup my_syntastic
   autocmd!
   " tell syntasitc to alwas stick any detected errors into the location-list
-  au FileType java,python,haskell let g:syntastic_always_populate_loc_list = 1
+  au FileType python,haskell let g:syntastic_always_populate_loc_list = 1
   " automatically open and/or close the location-list
-  au FileType java,python,haskell let g:syntastic_auto_loc_list = 1
+  au FileType python,haskell let g:syntastic_auto_loc_list = 1
   au FileType racket let g:syntastic_enable_racket_racket_checker = 1
-  au FileType java let g:SyntasticToggleMode = 0
 augroup END
+
+let g:syntastic_java_checkers=[]
 
 nnoremap <leader>S :SyntasticToogleMode<CR>
 
