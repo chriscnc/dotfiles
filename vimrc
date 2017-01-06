@@ -76,6 +76,7 @@ augroup my_syntastic
   " automatically open and/or close the location-list
   au FileType java,python,haskell let g:syntastic_auto_loc_list = 1
   au FileType racket let g:syntastic_enable_racket_racket_checker = 1
+  au FileType java let g:SyntasticToggleMode = 0
 augroup END
 
 nnoremap <leader>S :SyntasticToogleMode<CR>
