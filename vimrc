@@ -69,44 +69,28 @@ let g:haskellmode_completion_ghc = 1
 " end super tab
 
 " Syntastic
-augroup my_syntastic
-  autocmd!
-  " tell syntasitc to alwas stick any detected errors into the location-list
-  au FileType python,haskell let g:syntastic_always_populate_loc_list = 1
-  " automatically open and/or close the location-list
-  au FileType python,haskell let g:syntastic_auto_loc_list = 1
-  au FileType racket let g:syntastic_enable_racket_racket_checker = 1
-augroup END
+" tell syntasitc to alwas stick any detected errors into the location-list
+let g:syntastic_always_populate_loc_list = 1
+" automatically open and/or close the location-list
+let g:syntastic_auto_loc_list = 1
+" use manual checking. Auto checking on file save is a nuisance.
+let g:syntastic_mode_map = {
+      \ "mode": "active",
+      \ "active_filetypes": [],
+      \ "passive_filetypes": ["haskell", "java"] }
 
-let g:syntastic_java_checkers=[]
+map <C-n> :NERDTreeToggle<CR>
 
-nnoremap <leader>S :SyntasticToogleMode<CR>
-
-
-" tabular
-augroup tabular_haskell
-  autocmd!
-  au FileType haskell let g:haskell_tabular = 1
-  au FileType haskell vmap a= :Tabularize /=<CR>
-  au FileType haskell vmap a; :Tabularize /::<CR>
-  au FileType haskell vmap a- :Tabularize /-><CR>
-augroup END
-
-" Racket
-augroup filetype_racket
-  autocmd!
-  autocmd FileType racket nnoremap <buffer> <localleader>r :exec '!raco test' shellescape(@%, 1)<CR>
-augroup END
-
-" Python
-augroup filetype_python
-  autocmd!
-  autocmd FileType python nnoremap <buffer> <localleader>r :exec '!python' shellescape(@%, 1)<CR>
-augroup END
-
-
-" Markdown
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+" global mappings
+let mapleader = "-"
+let maplocalleader = ","
+" Edit vimrc
+nnoremap <leader>ev :tabnew $MYVIMRC<cr> 
+" Source vimrc
+nnoremap <leader>sv :source $MYVIMRC<cr>
+" Remap ESC
+inoremap <silent> kj <ESC>
+inoremap <esc> <nop>
 
 " OCaml stuff
 au BufEnter *.ml setf ocaml
@@ -126,20 +110,21 @@ autocmd BufReadPost *
 \   exe "normal! g`\"" |
 \ endif
 
+" Set the Markdown filetype
+au BufNewFile,BufReadPost *.md set filetype=markdown
 
-" global mappings
-let mapleader = "-"
-let maplocalleader = ","
-" Edit vimrc
-nnoremap <leader>ev :tabnew $MYVIMRC<cr> 
-" Source vimrc
-nnoremap <leader>sv :source $MYVIMRC<cr>
-" Remap ESC
-inoremap <silent> kj <ESC>
-inoremap <esc> <nop>
+augroup filetype_racket
+  autocmd!
+  au FileType racket let g:syntastic_enable_racket_racket_checker = 1
+  autocmd FileType racket nnoremap <buffer> <localleader>r :exec '!raco test' shellescape(@%, 1)<CR>
+  autocmd FileType racket nnoremap <buffer> <localleader>c :SyntasticCheck<CR>
+augroup END
 
-map <C-n> :NERDTreeToggle<CR>
-
+augroup filetype_python
+  autocmd!
+  autocmd FileType python nnoremap <buffer> <localleader>r :exec '!python' shellescape(@%, 1)<CR>
+  autocmd FileType python nnoremap <buffer> <localleader>c :SyntasticCheck<CR>
+augroup END
 
 augroup filetype_clojure
   autocmd!
@@ -147,17 +132,24 @@ augroup filetype_clojure
 augroup END
 
 augroup filetype_haskell
-  autocmd!
+  au!
   " ghcmod key mappings
-  autocmd FileType haskell nnoremap <buffer> <localleader>r :Require<CR>
-  autocmd FileType haskell nnoremap <silent> <buffer> <localleader>tq :GhcModType<CR>
-  autocmd FileType haskell nnoremap <silent> <buffer> <localleader>te :GhcModTypeClear<CR>
-  autocmd FileType haskell nnoremap <silent> <buffer> <localleader>ti :GhcModTypeInsert<CR>
-  autocmd FileType haskell nnoremap <silent> <buffer> <localleader>ts :GhcModSplitFunCase<CR>
-  autocmd Filetype haskell nnoremap <silent> <buffer> <localleader>d :GhcModInfoPreview<CR>
+  au FileType haskell nnoremap <buffer> <localleader>r :Require<CR>
+  au FileType haskell nnoremap <silent> <buffer> <localleader>tq :GhcModType<CR>
+  au FileType haskell nnoremap <silent> <buffer> <localleader>te :GhcModTypeClear<CR>
+  au FileType haskell nnoremap <silent> <buffer> <localleader>ti :GhcModTypeInsert<CR>
+  au FileType haskell nnoremap <silent> <buffer> <localleader>ts :GhcModSplitFunCase<CR>
+  au Filetype haskell nnoremap <silent> <buffer> <localleader>d :GhcModInfoPreview<CR>
   " for tab completion
-  autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-  autocmd Filetype haskell nnoremap <localleader>hi :HoogleInfo<CR>
+  au FileType haskell setlocal omnifunc=necoghc#omnifunc
+  au Filetype haskell nnoremap <localleader>hi :HoogleInfo<CR>
+  " syntastic
+  au FileType haskell nnoremap <buffer> <localleader>c :SyntasticCheck<CR>
+  " tabular
+  au FileType haskell let g:haskell_tabular = 1
+  au FileType haskell vmap a= :Tabularize /=<CR>
+  au FileType haskell vmap a; :Tabularize /::<CR>
+  au FileType haskell vmap a- :Tabularize /-><CR>
 augroup END
 
 augroup filtype_java
@@ -168,5 +160,6 @@ augroup filtype_java
   autocmd FileType java setlocal textwidth=80
   autocmd FileType java setlocal smarttab
   autocmd FileType java setlocal expandtab 
+  autocmd FileType java nnoremap <buffer> <localleader>c :SyntasticCheck<CR>
 augroup END
 
