@@ -18,7 +18,6 @@ set showmode
 set tw=80
 set smartcase
 set smarttab
-set mouse=a
 set smartindent
 set autoindent
 set softtabstop=2
