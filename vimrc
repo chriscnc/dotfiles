@@ -77,7 +77,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_mode_map = {
       \ "mode": "active",
       \ "active_filetypes": [],
-      \ "passive_filetypes": ["haskell", "java"] }
+      \ "passive_filetypes": ["haskell", "java", "python"] }
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -122,6 +122,12 @@ augroup END
 
 augroup filetype_python
   autocmd!
+  autocmd FileType python setlocal tabstop=4
+  autocmd FileType python setlocal softtabstop=4
+  autocmd FileType python setlocal shiftwidth=4
+  autocmd FileType python setlocal textwidth=80
+  autocmd FileType python setlocal smarttab
+  autocmd FileType python setlocal expandtab 
   autocmd FileType python nnoremap <buffer> <localleader>r :exec '!python' shellescape(@%, 1)<CR>
   autocmd FileType python nnoremap <buffer> <localleader>c :SyntasticCheck<CR>
 augroup END
@@ -162,4 +168,5 @@ augroup filtype_java
   autocmd FileType java setlocal expandtab 
   autocmd FileType java nnoremap <buffer> <localleader>c :SyntasticCheck<CR>
 augroup END
+
 
