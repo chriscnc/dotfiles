@@ -40,6 +40,8 @@ set autoindent
 set cmdheight=1
 
 " Pathogen
+let g:pathogen_disabled = []
+call add(g:pathogen_disabled, 'vim-classpath')
 execute pathogen#infect()
 execute pathogen#helptags()
 
@@ -76,7 +78,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_mode_map = {
       \ "mode": "active",
       \ "active_filetypes": [],
-      \ "passive_filetypes": ["haskell", "java", "python"] }
+      \ "passive_filetypes": ["haskell", "java", "python", "scala"] }
 
 map <C-n> :NERDTreeToggle<CR>
 
