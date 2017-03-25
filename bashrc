@@ -42,3 +42,6 @@ export PATH=$PATH:/usr/local/sbin
 # Haskell
 export PATH=$PATH:$HOME/Library/Haskell/bin
 
+# sbt
+export PATH=$PATH:$HOME/bin/sbt/bin
+

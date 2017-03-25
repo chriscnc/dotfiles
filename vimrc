@@ -170,4 +170,9 @@ augroup filtype_java
   autocmd FileType java nnoremap <buffer> <localleader>c :SyntasticCheck<CR>
 augroup END
 
+augroup filetype_javacup
+  autocmd!
+  au BufNewFile,BufRead *.cup set syntax=cup
+augroup END
+
 
