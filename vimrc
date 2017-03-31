@@ -172,7 +172,14 @@ augroup END
 
 augroup filetype_javacup
   autocmd!
+  au BufNewFile,BufRead *.cup set filetype=cup
   au BufNewFile,BufRead *.cup set syntax=cup
+augroup END
+
+augroup filetype_jflex
+  autocmd!
+  au BufNewFile,BufRead *.flex,*.jflex set filetype=jflex
+  au BufNewFile,BufRead *.flex,*.jflex set syntax=jflex
 augroup END
 
 
