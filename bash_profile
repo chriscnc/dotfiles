@@ -2,5 +2,7 @@ if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
 
-# OPAM configuration
-. /Users/chris/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+# Added by GraphLab Create Launcher v3.0.1
+#export PATH="/Users/chris/anaconda/bin:$PATH"
+#eval "$(register-python-argcomplete conda)"
+
